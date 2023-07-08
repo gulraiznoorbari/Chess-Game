@@ -29,35 +29,37 @@
         private void InitializeComponent()
         {
             this.PlayButton = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.ChessPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // PlayButton
             // 
             this.PlayButton.Font = new System.Drawing.Font("Fira Code", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlayButton.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.PlayButton.Location = new System.Drawing.Point(167, 12);
+            this.PlayButton.Location = new System.Drawing.Point(144, 12);
             this.PlayButton.Name = "PlayButton";
-            this.PlayButton.Size = new System.Drawing.Size(227, 43);
+            this.PlayButton.Size = new System.Drawing.Size(198, 43);
             this.PlayButton.TabIndex = 0;
             this.PlayButton.Text = "Let\'s Play Chess";
             this.PlayButton.UseVisualStyleBackColor = true;
             this.PlayButton.Click += new System.EventHandler(this.PlayButton_Click);
             // 
-            // flowLayoutPanel1
+            // ChessPanel
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(7, 66);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(570, 440);
-            this.flowLayoutPanel1.TabIndex = 1;
+            this.ChessPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ChessPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChessPanel.Location = new System.Drawing.Point(7, 66);
+            this.ChessPanel.Name = "ChessPanel";
+            this.ChessPanel.Size = new System.Drawing.Size(460, 445);
+            this.ChessPanel.TabIndex = 1;
             // 
             // Chess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Chess_Game.Properties.Resources.loadingscreen2;
-            this.ClientSize = new System.Drawing.Size(584, 511);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(474, 516);
+            this.Controls.Add(this.ChessPanel);
             this.Controls.Add(this.PlayButton);
             this.Name = "Chess";
             this.Text = "Chess";
@@ -68,7 +70,7 @@
         #endregion
 
         private System.Windows.Forms.Button PlayButton;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel ChessPanel;
     }
 }
 

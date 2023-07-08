@@ -20,15 +20,17 @@ namespace Chess_Game
             this.PictureName = n;
         }
 
+        public MYCOLOR getColor()
+        {
+            return this.Color;
+        }
+
         public abstract bool isLegalMove(int sRow, int sCol, int eRow, int eCol, Piece[][] Ps);
 
         public void Draw(Cell C)
         {
             C.Image = Image.FromFile("..\\..\\Resources\\" + PictureName);
         }
-
-        public void Remove(Cell C)
-        { }
 
         public static bool isVertical(int sRow, int sCol, int eRow, int eCol)
         {
