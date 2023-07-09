@@ -101,16 +101,37 @@ namespace Chess_Game
         private void MovePiece()
         {
             Piece sourcePiece = Source.piece;
-            Source.piece = null;
-            Destination.piece = sourcePiece;
+            int startRow = Source.rowIndex;
+            int startCol = Source.colIndex;
+            int destRow = Destination.rowIndex;
+            int destCol = Destination.colIndex;
 
-            int startRow = Source.rowIndex, startCol = Source.colIndex;
-            int destRow = Destination.rowIndex, destCol = Destination.colIndex;
-            Pieces[destRow, destCol] = Pieces[startRow, startCol];
-            Pieces[startRow, startCol] = null;
+            // Check if the move is legal
+            if (sourcePiece.isLegalMove(startRow, startCol, destRow, destCol, Pieces))
+            {
+                Source.piece = null;
+                Destination.piece = sourcePiece;
+                Pieces[destRow, destCol] = Pieces[startRow, startCol];
+                Pieces[startRow, startCol] = null;
 
-            Destination.piece.Draw(Destination);
-            Source.RemovePiece(Source);
+                Destination.piece.Draw(Destination);
+                Source.RemovePiece(Source);
+            }
+            else
+            {
+                MessageBox.Show("Invalid Move.");
+            }
+            //Piece sourcePiece = Source.piece;
+            //Source.piece = null;
+            //Destination.piece = sourcePiece;
+
+            //int startRow = Source.rowIndex, startCol = Source.colIndex;
+            //int destRow = Destination.rowIndex, destCol = Destination.colIndex;
+            //Pieces[destRow, destCol] = Pieces[startRow, startCol];
+            //Pieces[startRow, startCol] = null;
+
+            //Destination.piece.Draw(Destination);
+            //Source.RemovePiece(Source);
         }
 
         private void TurnChange()

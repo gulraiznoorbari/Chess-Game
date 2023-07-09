@@ -10,9 +10,9 @@ namespace Chess_Game
     {
         public Queen(MYCOLOR c, string n) : base(c, n) { }
 
-        public override bool isLegalMove(int sRow, int sCol, int eRow, int eCol, Piece[][] Ps)
+        public override bool isLegalMove(int sRow, int sCol, int eRow, int eCol, Piece[,] Ps)
         {
-            return true;
+            throw new NotImplementedException();
         }
     }
 }

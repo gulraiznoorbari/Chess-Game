@@ -7,3 +7,4 @@ E:\Visual Studio Projects\Chess-Game\Chess-Game\bin\Debug\Chess-Game.exe
 E:\Visual Studio Projects\Chess-Game\Chess-Game\bin\Debug\Chess-Game.pdb
 E:\Visual Studio Projects\Chess-Game\Chess-Game\obj\Debug\Chess-Game.exe
 E:\Visual Studio Projects\Chess-Game\Chess-Game\obj\Debug\Chess-Game.pdb
+E:\Visual Studio Projects\Chess-Game\Chess-Game\obj\Debug\Chess-Game.csprojAssemblyReference.cache
