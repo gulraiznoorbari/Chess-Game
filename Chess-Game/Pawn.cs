@@ -15,22 +15,25 @@ namespace Chess_Game
             int direction = (getColor() == MYCOLOR.WHITE) ? -1 : 1;
             MYCOLOR opposingColor = (getColor() == MYCOLOR.WHITE) ? MYCOLOR.BLACK : MYCOLOR.WHITE;
 
-            // Move forward (one place)
-            if (sCol == eCol && sRow + direction == eRow && Ps[eRow, eCol] == null)
+            // Move Forward (one place)
+            if (IsVertical(sRow, sCol, eRow, eCol) && sRow + direction == eRow && Ps[eRow, eCol] == null)
             {
                 return true;
             }
-            // Move forward for the first time (two places)
-            if (sCol == eCol && sRow + 2 * direction == eRow && sRow == ((getColor() == MYCOLOR.WHITE) ? 6 : 1)
+
+            // Move Forward for the first time (two places)
+            if (IsVertical(sRow, sCol, eRow, eCol) && sRow + 2 * direction == eRow && sRow == ((getColor() == MYCOLOR.WHITE) ? 6 : 1)
                 && Ps[sRow + direction, eCol] == null && Ps[eRow, eCol] == null)
             {
                 return true;
             }
+
             // Capture an opponent's piece diagonally one square forward
-            if (Math.Abs(eCol - sCol) == 1 && sRow + direction == eRow && Ps[eRow, eCol] != null && Ps[eRow, eCol].getColor() == opposingColor)
+            if (IsDiagonal(sRow, sCol, eRow, eCol) && sRow + direction == eRow && Ps[eRow, eCol] != null && Ps[eRow, eCol].getColor() == opposingColor)
             {
                 return true;
             }
+
             return false;
         }
     }

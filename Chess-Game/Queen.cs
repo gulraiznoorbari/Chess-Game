@@ -12,7 +12,19 @@ namespace Chess_Game
 
         public override bool isLegalMove(int sRow, int sCol, int eRow, int eCol, Piece[,] Ps)
         {
-            throw new NotImplementedException();
+            if (IsVertical(sRow, sCol, eRow, eCol) && IsVerticalPathClear(sRow, sCol, eRow, eCol, Ps))
+            {
+                return true;
+            }
+            if (IsHorizontal(sRow, sCol, eRow, eCol) && IsHorizontalPathClear(sRow, sCol, eRow, eCol, Ps))
+            {
+                return true;
+            }
+            if (IsDiagonal(sRow, sCol, eRow, eCol) && IsDiagonalPathClear(sRow, sCol, eRow, eCol, Ps))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

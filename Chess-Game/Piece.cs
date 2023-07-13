@@ -32,14 +32,14 @@ namespace Chess_Game
             C.Image = Image.FromFile("..\\..\\Resources\\" + PictureName);
         }
 
-        public static bool isVertical(int sRow, int sCol, int eRow, int eCol)
+        public static bool IsVertical(int sRow, int sCol, int eRow, int eCol)
         {
             return sCol == eCol;
         }
 
-        public static bool IsVerticalPathCheck(int sRow, int sCol, int eRow, int eCol, Piece[,] Ps)
+        public static bool IsVerticalPathClear(int sRow, int sCol, int eRow, int eCol, Piece[,] Ps)
         {
-            if (!isVertical(sRow, sCol, eRow, eCol))
+            if (!IsVertical(sRow, sCol, eRow, eCol))
                 return false;
 
             int start = Math.Min(sRow, sCol);
@@ -54,14 +54,14 @@ namespace Chess_Game
             return true;
         }
 
-        public static bool isHorizontal(int sRow, int sCol, int eRow, int eCol)
+        public static bool IsHorizontal(int sRow, int sCol, int eRow, int eCol)
         {
             return sRow == eRow;
         }
 
-        public static bool IsHorizontalPathCheck(int sRow, int sCol, int eRow, int eCol, Piece[,] Ps)
+        public static bool IsHorizontalPathClear(int sRow, int sCol, int eRow, int eCol, Piece[,] Ps)
         {
-            if (!isHorizontal(sRow, sCol, eRow, eCol))
+            if (!IsHorizontal(sRow, sCol, eRow, eCol))
                 return false;
 
             int start = Math.Min(eRow, eCol);
@@ -74,14 +74,14 @@ namespace Chess_Game
             return true;
         }
 
-        public static bool isDiagonal(int sRow, int sCol, int eRow, int eCol)
+        public static bool IsDiagonal(int sRow, int sCol, int eRow, int eCol)
         {
             return Math.Abs(sRow - eRow) ==  Math.Abs(sCol - eCol);
         }
 
-        public static bool IsDiagonalPathCheck(int sRow, int sCol, int eRow, int eCol, Piece[,] Ps)
+        public static bool IsDiagonalPathClear(int sRow, int sCol, int eRow, int eCol, Piece[,] Ps)
         {
-            if (!isDiagonal(sRow, sCol, eRow, eCol))
+            if (!IsDiagonal(sRow, sCol, eRow, eCol))
                 return false;
 
             int startRow = Math.Min(sRow, eRow);
