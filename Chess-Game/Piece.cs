@@ -37,21 +37,27 @@ namespace Chess_Game
             return sCol == eCol;
         }
 
-        public static bool IsVerticalPathClear(int sRow, int sCol, int eRow, int eCol, Piece[,] Ps)
+        public bool IsVerticalPathClear(int sRow, int sCol, int eRow, int eCol, Piece[,] Ps)
         {
+            MYCOLOR opposingColor = (getColor() == MYCOLOR.WHITE) ? MYCOLOR.BLACK : MYCOLOR.WHITE;
             if (!IsVertical(sRow, sCol, eRow, eCol))
                 return false;
 
-            int start = Math.Min(sRow, sCol);
-            int end = Math.Max(sRow, sCol);
-            for (int i = start; i < end; i++)
+            int start = Math.Min(sRow, eRow);
+            int end = Math.Max(sRow, eRow);
+
+            // Check if there is any piece of the same color in the path
+            for (int i = start + 1; i < end; i++)
             {
                 if (Ps[i, sCol] != null)
-                {
                     return false;
-                }
             }
-            return true;
+
+            // Check if the ending position contains an opposing color piece
+            if (Ps[eRow, eCol] == null || Ps[eRow, eCol].getColor() == opposingColor)
+                return true;
+
+            return false;
         }
 
         public static bool IsHorizontal(int sRow, int sCol, int eRow, int eCol)
@@ -59,20 +65,30 @@ namespace Chess_Game
             return sRow == eRow;
         }
 
-        public static bool IsHorizontalPathClear(int sRow, int sCol, int eRow, int eCol, Piece[,] Ps)
+        public bool IsHorizontalPathClear(int sRow, int sCol, int eRow, int eCol, Piece[,] Ps)
         {
+            MYCOLOR opposingColor = (getColor() == MYCOLOR.WHITE) ? MYCOLOR.BLACK : MYCOLOR.WHITE;
             if (!IsHorizontal(sRow, sCol, eRow, eCol))
                 return false;
 
-            int start = Math.Min(eRow, eCol);
-            int end = Math.Max(eRow, eCol);
-            for (int i = start; i < end; i++)
+            int start = Math.Min(sCol, eCol);
+            int end = Math.Max(sCol, eCol);
+
+            // Check if there is any piece of the same color in the path
+            for (int i = start + 1; i < end; i++)
             {
                 if (Ps[sRow, i] != null)
                     return false;
             }
-            return true;
+
+            // Check if the ending position contains an opposing color piece
+            if (Ps[eRow, eCol] == null || Ps[eRow, eCol].getColor() == opposingColor)
+                return true;
+
+            return false;
         }
+  
+
 
         public static bool IsDiagonal(int sRow, int sCol, int eRow, int eCol)
         {

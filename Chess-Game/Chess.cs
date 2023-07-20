@@ -116,6 +116,7 @@ namespace Chess_Game
 
                 Destination.piece.Draw(Destination);
                 Source.RemovePiece(Source);
+                TurnChange();
             }
             else
             {
@@ -161,8 +162,7 @@ namespace Chess_Game
                 DestinationSelection(sender, e);
                 if (IsValidPieceDestination())
                 {
-                    MovePiece();
-                    TurnChange();
+                    MovePiece();   
                 }
                 else
                 {
