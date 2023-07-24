@@ -17,9 +17,7 @@ namespace Chess_Game
             // Check if the move is diagonal and the diagonal path is clear
             if (IsDiagonalPathClear(sRow, sCol, eRow, eCol, Ps))
             {
-                // Check if the ending position contains an opposing color piece
-                if (Ps[eRow, eCol] == null || Ps[eRow, eCol].getColor() == opposingColor)
-                    return true;
+                return true;
             }
             return false;
         }

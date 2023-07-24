@@ -95,6 +95,8 @@ namespace Chess_Game
 
         public bool IsDiagonalPathClear(int sRow, int sCol, int eRow, int eCol, Piece[,] Ps)
         {
+            MYCOLOR opposingColor = (getColor() == MYCOLOR.WHITE) ? MYCOLOR.BLACK : MYCOLOR.WHITE;
+
             if (!IsDiagonal(sRow, sCol, eRow, eCol))
                 return false;
 
@@ -111,7 +113,11 @@ namespace Chess_Game
                 row += rowDirection;
                 col += colDirection;
             }
-            return true;
+            // Check if the ending position contains an opposing color piece
+            if (Ps[eRow, eCol] == null || Ps[eRow, eCol].getColor() == opposingColor)
+                return true;
+
+            return false;
         }
     }
 }
