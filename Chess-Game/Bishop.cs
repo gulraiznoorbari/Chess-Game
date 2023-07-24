@@ -12,9 +12,14 @@ namespace Chess_Game
 
         public override bool isLegalMove(int sRow, int sCol, int eRow, int eCol, Piece[,] Ps)
         {
-            if (IsDiagonal(sRow, sCol, eRow, eCol) && IsDiagonalPathClear(sRow, sCol, eRow, eCol, Ps))
+            MYCOLOR opposingColor = (getColor() == MYCOLOR.WHITE) ? MYCOLOR.BLACK : MYCOLOR.WHITE;
+
+            // Check if the move is diagonal and the diagonal path is clear
+            if (IsDiagonalPathClear(sRow, sCol, eRow, eCol, Ps))
             {
-                return true;
+                // Check if the ending position contains an opposing color piece
+                if (Ps[eRow, eCol] == null || Ps[eRow, eCol].getColor() == opposingColor)
+                    return true;
             }
             return false;
         }

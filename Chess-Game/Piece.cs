@@ -87,33 +87,29 @@ namespace Chess_Game
 
             return false;
         }
-  
-
 
         public static bool IsDiagonal(int sRow, int sCol, int eRow, int eCol)
         {
             return Math.Abs(sRow - eRow) ==  Math.Abs(sCol - eCol);
         }
 
-        public static bool IsDiagonalPathClear(int sRow, int sCol, int eRow, int eCol, Piece[,] Ps)
+        public bool IsDiagonalPathClear(int sRow, int sCol, int eRow, int eCol, Piece[,] Ps)
         {
             if (!IsDiagonal(sRow, sCol, eRow, eCol))
                 return false;
 
-            int startRow = Math.Min(sRow, eRow);
-            int endRow = Math.Max(sRow, eRow);
-            int startCol = Math.Min(sCol, eCol);
-            int endCol = Math.Max(sCol, eCol);
+            int rowDirection = (eRow > sRow) ? 1 : -1;
+            int colDirection = (eCol > sCol) ? 1 : -1;
 
-            int row = startRow;
-            int col = startCol;
+            int row = sRow + rowDirection;
+            int col = sCol + colDirection;
 
-            while (row < endRow && col < endCol)
+            while (row != eRow && col != eCol)
             {
                 if (Ps[row, col] != null)
                     return false;
-                row++;
-                col++;
+                row += rowDirection;
+                col += colDirection;
             }
             return true;
         }
