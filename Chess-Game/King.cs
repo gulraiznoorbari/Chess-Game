@@ -12,7 +12,16 @@ namespace Chess_Game
 
         public override bool isLegalMove(int sRow, int sCol, int eRow, int eCol, Piece[,] Ps)
         {
-            throw new NotImplementedException();
+            MYCOLOR opposingColor = (getColor() == MYCOLOR.WHITE) ? MYCOLOR.BLACK : MYCOLOR.WHITE;
+
+            if (Math.Abs(sRow - eRow) <= 1 && Math.Abs(sCol - eCol) <= 1)
+            {
+                if (Ps[eRow, eCol] == null || Ps[eRow, eCol].getColor() == opposingColor)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
